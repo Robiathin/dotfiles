@@ -5,3 +5,4 @@
 
 (setq auto-save-default nil)
 
+(global-linum-mode t)
