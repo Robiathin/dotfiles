@@ -11,9 +11,15 @@
 	ruby-indent-level 8
 	ruby-indent-tabs-mode t)
 
-;; Perl options
+;; Perl Options
 (setq-default perl-indent-level 8
 	perl-tab-always-indent nil)
+
+;; Erlang Options
+(setq load-path (cons (getenv "EMACS_ERLANG_TOOLS") load-path))
+(setq erlang-root-dir (getenv "EMACS_ERLANG_ROOT"))
+(require 'erlang-start)
+(setq erlang-electric-commands '())
 
 (setq auto-save-default nil)
 
