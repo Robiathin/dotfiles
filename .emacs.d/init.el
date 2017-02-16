@@ -3,6 +3,8 @@
 	indent-tabs-mode t
 	c-default-style "bsd")
 
+(load-theme 'tsdh-dark t)
+
 ;; Ruby Options
 (setq-default ruby-align-to-stmt-keywords nil
 	ruby-deep-arglist nil
