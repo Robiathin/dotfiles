@@ -13,4 +13,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export EMACS_ERLANG_TOOLS="/opt/local/lib/erlang/lib/tools-2.8.6/emacs"
 export EMACS_ERLANG_ROOT="/opt/local/lib/erlang"
 
+# For XEmacs via MacOS .app
+launchctl setenv EMACS_ERLANG_TOOLS "$EMACS_ERLANG_TOOLS"
+launchctl setenv EMACS_ERLANG_ROOT "$EMACS_ERLANG_ROOT"
+
 alias em=emacs
