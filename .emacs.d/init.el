@@ -1,7 +1,8 @@
 (setq-default c-basic-offset 8
 	tab-width 8
 	indent-tabs-mode t
-	c-default-style "bsd")
+	c-default-style "bsd"
+	auto-save-default nil)
 
 (load-theme 'tsdh-dark t)
 
@@ -18,12 +19,15 @@
 	perl-tab-always-indent nil)
 
 ;; Erlang Options
-(setq load-path (cons (getenv "EMACS_ERLANG_TOOLS") load-path))
-(setq erlang-root-dir (getenv "EMACS_ERLANG_ROOT"))
-(require 'erlang-start)
-(setq erlang-electric-commands '())
-
-(setq auto-save-default nil)
+(defun init-erlang ()
+	(setq load-path (cons (getenv "EMACS_ERLANG_TOOLS") load-path)
+		erlang-root-dir (getenv "EMACS_ERLANG_ROOT"))
+	(require 'erlang-start)
+	(setq erlang-electric-commands '()
+		auto-save-default nil))
+(if (not (and (eq (getenv "EMACS_ERLANG_TOOLS") "")
+		(eq (getenv "EMACS_ERLANG_ROOT") "")))
+	(init-erlang))
 
 ;; Print a hard tab when the tab key is pressed
 (defun print-hard-tab ()
