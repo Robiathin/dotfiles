@@ -1,10 +1,14 @@
+(load-theme 'tsdh-dark t)
+
+;; If Erlang is required uncomment:
+;(load-file "~/.emacs.d/erlang.el")
+
+;; C and basic options
 (setq-default c-basic-offset 8
 	tab-width 8
 	indent-tabs-mode t
 	c-default-style "bsd"
 	auto-save-default nil)
-
-(load-theme 'tsdh-dark t)
 
 ;; Ruby Options
 (setq-default ruby-align-to-stmt-keywords nil
@@ -18,17 +22,6 @@
 (setq-default perl-indent-level 8
 	perl-tab-always-indent nil)
 
-;; Erlang Options
-(defun init-erlang ()
-	(setq load-path (cons (getenv "EMACS_ERLANG_TOOLS") load-path)
-		erlang-root-dir (getenv "EMACS_ERLANG_ROOT"))
-	(require 'erlang-start)
-	(setq erlang-electric-commands '()
-		auto-save-default nil))
-(if (not (and (eq (getenv "EMACS_ERLANG_TOOLS") "")
-		(eq (getenv "EMACS_ERLANG_ROOT") "")))
-	(init-erlang))
-
 ;; Print a hard tab when the tab key is pressed
 (defun print-hard-tab ()
 	(interactive)
@@ -39,11 +32,14 @@
 (defun print-new-line ()
 	(interactive)
 	(insert "\n"))
+
 (add-hook 'emacs-lisp-mode-hook
 	(lambda ()
 		(global-set-key (kbd "RET") 'print-new-line)))
+
 (add-hook 'scheme-mode-hook
 	(lambda ()
 		(global-set-key (kbd "RET") 'print-new-line)))
 
 (global-linum-mode t)
+
