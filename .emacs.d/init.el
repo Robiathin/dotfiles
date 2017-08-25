@@ -1,3 +1,8 @@
+(require 'package)
+(add-to-list 'package-archives
+	'("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (load-theme 'tsdh-dark t)
 
 ;; If Erlang is required uncomment:
