@@ -8,7 +8,7 @@
 
 (package-initialize)
 
-(load-theme 'tsdh-dark t)
+(load-theme 'tsdh-light t)
 
 ;; If Erlang is required uncomment:
 ;(load-file "~/.emacs.d/erlang.el")
